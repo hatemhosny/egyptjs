@@ -1,0 +1,110 @@
+.reveal {
+  visibility: hidden;
+}
+
+h2 {
+  text-transform: none !important;
+  font-family: "Courier New", Courier, monospace !important;
+  text-align: center !important;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 0.2em !important;
+    margin: auto;
+    background-image: url(https://hatemhosny.github.io/livecodes-assets/assets/169573988532230478220473/underline.png);
+    background-repeat: no-repeat;
+  }
+
+  &.title {
+    margin-top: calc(50vh - 0.5em) !important;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+code.inline {
+  background-color: #f3f1f1;
+  border: 1px solid #666;
+  border-radius: 5px;
+  padding: 3px;
+  font-size: 0.9em;
+}
+
+img {
+  max-height: 90vh;
+}
+
+.align-left {
+  text-align: left !important;
+}
+
+.align-middle {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.indent {
+  margin-left: 2em;
+}
+
+.error {
+  color: red;
+  background-color: rgb(255, 229, 229);
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.small {
+  font-size: 0.6em !important;
+}
+
+.home {
+  h2::after {
+    display: none;
+  }
+
+  .author {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    font-size: 2rem;
+    text-align: right;
+  }
+
+  #think-learn {
+    filter: drop-shadow(5px 5px 4px #333);
+  }
+}
+
+.mermaid svg {
+  max-width: unset !important;
+  max-height: 70vh !important;
+}
+
+.livecodes {
+  height: 65vh !important;
+  transform: scale(1.2) !important;
+  margin-left: 10%;
+  margin-top: 1.5em;
+  max-width: 80%;
+
+  iframe {
+    max-width: 100%;
+    max-height: max-content;
+    transform: scale(1) !important;
+  }
+}
+
+.edit-slides {
+  margin-top: 3em !important;
+  margin-bottom: -3em !important;
+  width: 100% !important;
+}
