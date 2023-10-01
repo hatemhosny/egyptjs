@@ -124,6 +124,15 @@
       </section>
 
       <section data-visibility="!hidden" data-title="Languages: Running 80+ Languages" class="align-left">
+        <h2>Definitions</h2>
+          <ul>
+            <li class="fragment">Language</li>
+            <li class="fragment">Compiler</li>
+            <li class="fragment">Runtime</li>
+          </ul>
+      </section>
+
+      <section data-visibility="!hidden" data-title="Languages: Running 80+ Languages" class="align-left">
         <h2>Running 80+ Languages</h2>
         <ul>
           <li data-fragment-index="0">Options:
@@ -456,7 +465,6 @@
           ![LiveCodes Assets](https://livecodes.io/docs/assets/images/assets-79f6e5f750f5b0ee13fa3e6e428f0bbb.png)
         </textarea>
       </section>
-
     </section>
 
     <section data-visibility="!hidden" data-title="Challenge: Avoid Breaking Changes">
@@ -551,9 +559,73 @@
       <section data-visibility="!hidden" data-title="Compiler Performance" class="align-left">
         <h2>Compiler Performance</h2>
         <ul>
-          <li class="fragment">Caching</li>
-          <li class="fragment">Web workers</li>
+          <li class="fragment" data-fragment-index="1">Do not compile changed code
+            <ul>
+              <li class="fragment" data-fragment-index="4">Debounce<br><br></li>
+            </ul>
+          </li>
+          <li class="fragment" data-fragment-index="2">Do not compile the same code again
+            <ul>
+              <li class="fragment" data-fragment-index="5">Caching<br><br></li>
+            </ul>
+          </li>
+          <li class="fragment" data-fragment-index="3">Do not block the UI
+            <ul>
+              <li class="fragment" data-fragment-index="6">Web workers<br><br></li>
+            </ul>
+          </li>
         </ul>
+      </section>
+
+      <section data-visibility="!hidden" data-title="Compiler Performance: [Code] Debounce">
+        <h2>Debounce</h2>
+      </section>
+
+      <section data-visibility="!hidden" data-title="Compiler Performance: [Code] Debounce">
+        <h2>Debounce</h2>
+        <div class="align-middle">
+          <img src="https://hatemhosny.github.io/livecodes-assets/assets/169614562367511426487980/js-debounce.png" alt="">
+        </div>
+      </section>
+
+      <section data-visibility="!hidden" data-title="Compiler Performance: [Code] Debounce" data-markdown="">
+        ## Debounce
+        ```js []
+        editor.onChange(compileCode);
+        ```
+      </section>
+
+      <section data-visibility="!hidden" data-title="Compiler Performance: [Code] Debounce" data-markdown="">
+        ## Debounce
+        ```js []
+        editor.onChange(compileCode);
+        ```
+        
+        ```js []
+        editor.onChange(debounce(compileCode), 1500);
+        ```
+      </section>
+
+      <section data-visibility="!hidden" data-title="Compiler Performance: [Code] Debounce" data-markdown="">
+        <textarea data-template="">          ## Debounce
+          ```js []
+          editor.onChange(compileCode);
+          ```
+          
+          ```js []
+          editor.onChange(debounce(compileCode), 1500);
+          ```
+          
+          ```js []
+          export const debounce = (fn, ms) =&gt; {
+            let timeout;
+            return (...args) =&gt; {
+              clearTimeout(timeout);
+              timeout = setTimeout(() =&gt; fn(...args), ms);
+            };
+          };
+          ```
+        </textarea>
       </section>
 
       <section data-visibility="!hidden" data-title="Compiler Performance: Caching">
@@ -630,7 +702,6 @@ importScripts("https://unpkg.com/lib/script.js");</code></pre>
           <li class="fragment">Data URLs are <a href="https://livecodes.io/?x=id/3fkupkw8dmd&amp;console=open" target="_blank">allowed</a> ;)</li>
         </ul>
       </section>
-
     </section>
 
     <section data-visibility="!hidden" data-title="Challenge: Security">
@@ -689,7 +760,7 @@ importScripts("https://unpkg.com/lib/script.js");</code></pre>
             src="https://unique-origin.com/untrusted.html" 
           &gt;&lt;/iframe&gt;
           ```
-            &lt;p&gt;Unique Origin&lt;/p&gt;
+            &lt;p&gt;Different Origin&lt;/p&gt;
             &lt;p class="fragment"&gt;&lt;code class="inline"&gt;postMessage&lt;/code&gt;&lt;/p&gt;
         </textarea>
       </section>
