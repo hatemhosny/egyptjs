@@ -1,9 +1,8 @@
 import Reveal from "reveal.js@4.6.1";
 import Markdown from "reveal.js@4.6.1/plugin/markdown/markdown.esm.js";
-import Mermaid from 'reveal.js-mermaid-plugin@2.0.0/plugin/mermaid/mermaid.esm.js'
+import Mermaid from "reveal.js-mermaid-plugin@2.0.0/plugin/mermaid/mermaid.esm.js";
 import Highlight from "reveal.js@4.6.1/plugin/highlight/highlight.esm.js";
-import { createPlayground } from 'livecodes@0.2.0'
-
+import { createPlayground } from "livecodes@0.2.0";
 
 
 
@@ -24,30 +23,30 @@ deck.initialize({
   },
 });
 
-document.querySelector('.reveal').style.visibility = 'visible';
+document.querySelector(".reveal").style.visibility = "visible";
 
 const liveCodesOptions = {
-  appUrl: 'https://v14.livecodes.io',
-}
+  appUrl: "https://v14.livecodes.io",
+};
 
-createPlayground('#react-demo', {
+createPlayground("#react-demo", {
   ...liveCodesOptions,
-  template: 'react',
-})
+  template: "react",
+}).then((p) => p.load());
 
-createPlayground('#ruby-demo', {
+createPlayground("#ruby-demo", {
   ...liveCodesOptions,
-  template: 'ruby',
-})
+  template: "ruby",
+}).then((p) => p.load());
 
-createPlayground('#php-demo', {
+createPlayground("#php-demo", {
   ...liveCodesOptions,
-  template: 'php',
-})
+  template: "php",
+}).then((p) => p.load());
 
-createPlayground('#modules-demo', {
+createPlayground("#modules-demo", {
   ...liveCodesOptions,
   params: {
-    'js': `import { v4 } from "uuid";\n\ndocument.body.innerHTML += v4();`,
-  }
-})
+    js: `import { v4 } from "uuid";\n\ndocument.body.innerHTML += v4();`,
+  },
+}).then((p) => p.load());

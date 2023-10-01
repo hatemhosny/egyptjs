@@ -362,12 +362,13 @@
       <section data-visibility="!hidden" data-title="No Backend: Browser Storage" class="align-left">
         <h2>Browser Storage</h2>
         <ul>
-          <li class="fragment2">Cookies</li>
-          <li class="fragment2">sessionStorage</li>
-          <li class="fragment2">localStorage</li>
-          <li class="fragment2">IndexedDB</li>
-          <li class="fragment2 strike">Web SQL</li>
-          <li class="fragment2">Cache API</li>
+          <li class="fragment">Cookies</li>
+          <li class="fragment">sessionStorage</li>
+          <li class="fragment">localStorage</li>
+          <li class="fragment">IndexedDB</li>
+          <li class="fragment">Web SQL <span class="fragment small">❌</span></li>
+          <li class="fragment">Cache API</li>
+          <li class="fragment">Origin private file system (OPFS)</li>
         </ul>
       </section>
 
@@ -428,6 +429,26 @@
           <li class="fragment">Share service: dpaste</li>
           <li class="fragment">Custom services</li>
         </ul>
+      </section>
+
+      <section data-visibility="!hidden" data-title="No Backend: Query Strings" class="align-left">
+        <h2>Query Strings</h2>
+        <code class="inline small">https://livecodes.io/?x=code/N4IgLglmA2CmIC...</code>
+          <ul>
+            <li class="fragment">Client-side sharing</li>
+            <li class="fragment">Size limit</li>
+            <li class="fragment">Needs encoding and may be compression</li>
+            <li class="fragment">Not user-friendly</li>
+          </ul>
+        
+      </section>
+
+      <section data-visibility="!hidden" data-title="No Backend: QR Code">
+        <h2>QR Code</h2>
+        <div class="align-middle">
+          <img src="https://hatemhosny.github.io/livecodes-assets/assets/169616844801092701767999/livecodes-qrcode.png" alt="LiveCodes QR code">
+        </div>
+        
       </section>
 
       <section data-visibility="!hidden" data-title="No Backend: Data URLs">
@@ -700,6 +721,7 @@
 importScripts("https://unpkg.com/lib/script.js");</code></pre>
           </li>
           <li class="fragment">Data URLs are <a href="https://livecodes.io/?x=id/3fkupkw8dmd&amp;console=open" target="_blank">allowed</a> ;)</li>
+          <li class="fragment">? ESM imports</li>
         </ul>
       </section>
     </section>
@@ -809,10 +831,11 @@ importScripts("https://unpkg.com/lib/script.js");</code></pre>
           <li class="fragment">WebAssembly</li>
           <li class="fragment">Higher-Order Functions</li>
           <li class="fragment">Import Maps</li>
+          <li class="fragment">Browser Storage</li>
+          <li class="fragment">Data URLs</li>
           <li class="fragment">Automated Releases - Versions</li>
           <li class="fragment">Caching</li>
           <li class="fragment">Web Workers</li>
-          <li class="fragment">Data URLs</li>
           <li class="fragment">Sandboxed Iframes</li>
         </ul>
       </section>
