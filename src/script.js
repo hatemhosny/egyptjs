@@ -32,21 +32,21 @@ const liveCodesOptions = {
 createPlayground("#react-demo", {
   ...liveCodesOptions,
   template: "react",
-}).then((p) => p.load());
+});
 
 createPlayground("#ruby-demo", {
   ...liveCodesOptions,
   template: "ruby",
-}).then((p) => p.load());
+});
 
 createPlayground("#php-demo", {
   ...liveCodesOptions,
   template: "php",
-}).then((p) => p.load());
+});
 
 createPlayground("#modules-demo", {
   ...liveCodesOptions,
   params: {
     js: `import { v4 } from "uuid";\n\ndocument.body.innerHTML += v4();`,
   },
-}).then((p) => p.load());
+});
