@@ -26,7 +26,7 @@ deck.initialize({
 document.querySelector(".reveal").style.visibility = "visible";
 
 const liveCodesOptions = {
-  appUrl: "https://v14.livecodes.io",
+  appUrl: "https://v15.livecodes.io",
 };
 
 createPlayground("#react-demo", {

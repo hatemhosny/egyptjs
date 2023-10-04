@@ -228,7 +228,8 @@
                   return async (code) =&gt; {
                     const script = `
                     const mod = await import('./wasm-runtime.js');
-                    mod.runInWasm(\`${code}\`, ${JSON.stringify(config)});
+                    await mod.loadWasm(${JSON.stringify(config)});
+                    mod.runInWasm(\`${code}\`);
                     `
                     return script;
                   }
@@ -293,6 +294,26 @@
             document.body.innerHTML += v4();
           &lt;/script&gt;
           ```
+        </textarea>
+      </section>
+
+      <section data-visibility="!hidden" data-title="Importing npm Modules: [Code] Import Maps" data-markdown="">
+        <textarea data-template="">          ## Import Maps
+          ```html []
+          &lt;script type="importmap"&gt;
+          {
+            "imports": {
+              "uuid": "https://jspm.dev/uuid"
+            }
+          }
+          &lt;/script&gt;
+
+          &lt;script type="module"&gt;
+            import { v4 } from "uuid";
+            document.body.innerHTML += v4();
+          &lt;/script&gt;
+          ```
+          https://github.com/guybedford/es-module-shims
         </textarea>
       </section>
 
@@ -574,7 +595,7 @@
           import { createPlayground } from 'https://unpkg.com/livecodes@0.2.0';
 
           const playground = await createPlayground('#container', {
-            appUrl: 'https://v14.livecodes.io',
+            appUrl: 'https://v15.livecodes.io',
             params: {
               markdown: '# Hello LiveCodes!',
               css: 'h1 {color: dodgerblue;}',
@@ -598,7 +619,7 @@
                 release --&gt; App
                 App -- GH Actions --&gt; PR[PR -&gt; main]
                 PR -- CF Pages --&gt; Preview
-                Preview -- DNS API --&gt; Subdomain[v14.livecodes.io]
+                Preview -- DNS API --&gt; Subdomain[v15.livecodes.io]
                 PR -- merge --&gt; Deploy
                 Deploy --&gt; Domain[livecodes.io]
           </pre>
@@ -657,7 +678,7 @@
         ```
         
         ```js []
-        editor.onChange(debounce(compileCode), 1500);
+        editor.onChange(debounce(compileCode, 1500));
         ```
       </section>
 

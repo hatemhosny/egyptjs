@@ -232,7 +232,8 @@
                   return async (code) => {
                     const script = `
                     const mod = await import('./wasm-runtime.js');
-                    mod.runInWasm(\`${code}\`, ${JSON.stringify(config)});
+                    await mod.loadWasm(${JSON.stringify(config)});
+                    mod.runInWasm(\`${code}\`);
                     `
                     return script;
                   }
@@ -299,6 +300,27 @@
             document.body.innerHTML += v4();
           </script>
           ```
+        </textarea>
+      </section>
+
+      <section data-visibility="!hidden" data-title="Importing npm Modules: [Code] Import Maps" data-markdown>
+        <textarea data-template>
+          ## Import Maps
+          ```html []
+          <script type="importmap">
+          {
+            "imports": {
+              "uuid": "https://jspm.dev/uuid"
+            }
+          }
+          </script>
+
+          <script type="module">
+            import { v4 } from "uuid";
+            document.body.innerHTML += v4();
+          </script>
+          ```
+          https://github.com/guybedford/es-module-shims
         </textarea>
       </section>
 
@@ -594,7 +616,7 @@
           import { createPlayground } from 'https://unpkg.com/livecodes@0.2.0';
 
           const playground = await createPlayground('#container', {
-            appUrl: 'https://v14.livecodes.io',
+            appUrl: 'https://v15.livecodes.io',
             params: {
               markdown: '# Hello LiveCodes!',
               css: 'h1 {color: dodgerblue;}',
@@ -619,7 +641,7 @@
                 release --> App
                 App -- GH Actions --> PR[PR -> main]
                 PR -- CF Pages --> Preview
-                Preview -- DNS API --> Subdomain[v14.livecodes.io]
+                Preview -- DNS API --> Subdomain[v15.livecodes.io]
                 PR -- merge --> Deploy
                 Deploy --> Domain[livecodes.io]
           </pre>
@@ -678,7 +700,7 @@
         ```
         
         ```js []
-        editor.onChange(debounce(compileCode), 1500);
+        editor.onChange(debounce(compileCode, 1500));
         ```
       </section>
 
